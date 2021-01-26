@@ -14,10 +14,6 @@ const Header = ({ title }) => {
         <header className="header">
             <h1 style={headingStyle}> {title}</h1>
             <Button colour="black" text="Add Task" onClick={onClick} />
-
-
-
-
         </header>
     )
 }
@@ -27,11 +23,11 @@ Header.defaultProps = {
 }
 Header.propTypes = {
     title: PropTypes.string,
+    //Throws a fault if the type isn't matched. Can all add $.isRequired
 }
-//Throws a fault if the type isn't matched. Can all add $.isRequired
 const headingStyle = {
     color: 'blue',
+    //Can use the above instead of inline styling.
 }
-//Can use the above instead of inline styling.
 
 export default Header
