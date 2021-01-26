@@ -22,21 +22,23 @@ const App = () => {
         id: 3,
         text: "See something",
         day: "Feb 3rd at 11:00am",
-        reminder: true
+        reminder: false
         }
 
   ])
 
   const deleteTask = (id) => {
-    console.log('delete', id)
+    setTask(tasks.filter((tasks) => tasks.id !== id))
   }
 
-
+  const toggleReminder = (id) => {
+   setTask(tasks.map((tasks) => tasks.id === id ? {...tasks, reminder: !tasks.reminder} : tasks))
+}
 
   return (
     <div className="container">
       <Header />
-      <Task task = {tasks} onDelete={deleteTask}/>
+      <Task onToggle={toggleReminder} task = {tasks} onDelete={deleteTask}/>
     </div>
   );
 }
