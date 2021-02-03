@@ -2,6 +2,7 @@ import './App.css';
 import Header from './components/Header'
 import Task from './components/Task'
 import { useState } from 'react';
+import AddTask from './components/AddTask'
 
 
 const App = () => { 
@@ -38,6 +39,7 @@ const App = () => {
   return (
     <div className="container">
       <Header />
+      <AddTask />
       <Task onToggle={toggleReminder} task = {tasks} onDelete={deleteTask}/>
     </div>
   );
