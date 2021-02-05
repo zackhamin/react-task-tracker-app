@@ -28,6 +28,12 @@ const App = () => {
 
   ])
 
+  const addTask =(task) => {
+    const id = Math.floor(Math.random() * 10000) + 1
+    const newTask = { id, ...task}
+    setTask([...tasks, newTask])
+  }
+
   const deleteTask = (id) => {
     setTask(tasks.filter((tasks) => tasks.id !== id))
   }
@@ -39,7 +45,7 @@ const App = () => {
   return (
     <div className="container">
       <Header />
-      <AddTask />
+      <AddTask onAdd={addTask}/>
       <Task onToggle={toggleReminder} task = {tasks} onDelete={deleteTask}/>
     </div>
   );
@@ -47,3 +53,8 @@ const App = () => {
 
 
 export default App;
+
+
+// TODO: add a function which takes an argument and returns a string
+
+
