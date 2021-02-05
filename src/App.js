@@ -6,6 +6,8 @@ import AddTask from './components/AddTask'
 
 
 const App = () => { 
+
+  const [showAddTask, setShowAddTask] = useState(false)
   const [tasks, setTask] = useState([
     {
     id: 1,
@@ -44,17 +46,12 @@ const App = () => {
 
   return (
     <div className="container">
-      <Header />
-      <AddTask onAdd={addTask}/>
-      <Task onToggle={toggleReminder} task = {tasks} onDelete={deleteTask}/>
+      <Header onAdd={() => setShowAddTask(!showAddTask)} showAdd={showAddTask} />
+      {showAddTask && <AddTask onAdd={addTask}/>}
+      <Task onToggle={toggleReminder} task = {tasks} onDelete={deleteTask} />
     </div>
   );
 }
 
 
 export default App;
-
-
-// TODO: add a function which takes an argument and returns a string
-
-
